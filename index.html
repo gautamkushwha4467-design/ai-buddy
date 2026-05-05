@@ -5,573 +5,333 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: #0b1117;
-      color: #f5f7fa;
-    }
-
-    .announcement {
-      background: #37f3d0;
-      color: #06201b;
-      text-align: center;
-      padding: 12px;
-      font-weight: 700;
-    }
-
-    .navbar {
-      height: 80px;
-      background: #0b1117;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 8%;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #37f3d0;
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 28px;
-      color: #d5dde5;
-      font-size: 15px;
-    }
-
-    .navlinks span {
-      cursor: pointer;
-    }
-
-    .signup {
-      background: #37f3d0;
-      color: #061b18;
-      border: none;
-      padding: 13px 24px;
-      border-radius: 30px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .hero {
-      padding: 80px 8%;
-      min-height: 650px;
-      background:
-        radial-gradient(circle at 75% 30%, rgba(55,243,208,0.16), transparent 35%),
-        linear-gradient(135deg, #0b1117, #101b22);
-    }
-
-    .trusted {
-      display: flex;
-      gap: 45px;
-      flex-wrap: wrap;
-      color: rgba(255,255,255,0.45);
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 90px;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .tag {
-      color: #37f3d0;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: 64px;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #c8d2dc;
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-
-    .btns {
-      display: flex;
-      gap: 18px;
-    }
-
-    .primary-btn, .secondary-btn {
-      padding: 16px 28px;
-      border-radius: 30px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .primary-btn {
-      background: #37f3d0;
-      color: #061b18;
-      border: none;
-    }
-
-    .secondary-btn {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .hero-card {
-      background: #0f2d28;
-      border: 1px solid rgba(55,243,208,0.25);
-      border-radius: 18px;
-      padding: 35px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-    }
-
-    .hero-card h2 {
-      font-size: 34px;
-      margin-bottom: 16px;
-    }
-
-    .feature-line {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 16px;
-      border-radius: 10px;
-      margin: 12px 0;
-      color: #eaf7f4;
-    }
-
-    .dashboard {
-      padding: 70px 8%;
-      background: #0b1117;
-    }
-
-    .section-title {
-      font-size: 38px;
-      margin-bottom: 28px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: #101820;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 26px;
-      transition: 0.3s;
-      margin-bottom: 22px;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #37f3d0;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      color: #37f3d0;
-    }
-
-    .card p {
-      color: #c8d2dc;
-      line-height: 1.7;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: #0b1117;
-      color: white;
-      outline: none;
-    }
-
-    .predict-btn {
-      background: #37f3d0;
-      color: #061b18;
-      border: none;
-      padding: 14px 24px;
-      border-radius: 30px;
-      font-weight: 800;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    #careerResult {
-      margin-top: 18px;
-      color: #37f3d0;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .progress {
-      height: 10px;
-      background: #24313d;
-      border-radius: 20px;
-      margin: 15px 0;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      width: 72%;
-      height: 100%;
-      background: #37f3d0;
-    }
-
-    #chatButton {
-      position: fixed;
-      right: 28px;
-      bottom: 28px;
-      background: #37f3d0;
-      color: #061b18;
-      padding: 16px 24px;
-      border-radius: 40px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(55,243,208,0.35);
-      z-index: 20;
-    }
-
-    #chatPopup {
-      position: fixed;
-      right: 28px;
-      bottom: 95px;
-      width: 340px;
-      height: 440px;
-      background: #101820;
-      border: 1px solid rgba(55,243,208,0.35);
-      border-radius: 18px;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.5);
-      z-index: 20;
-    }
-
-    .chat-header {
-      background: #37f3d0;
-      color: #061b18;
-      padding: 14px;
-      font-weight: 800;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    #chatbox {
-      flex: 1;
-      padding: 14px;
-      overflow-y: auto;
-    }
-
-    .msg {
-      padding: 10px 12px;
-      margin: 8px 0;
-      border-radius: 12px;
-      max-width: 78%;
-      font-size: 14px;
-    }
-
-    .user {
-      background: #37f3d0;
-      color: #061b18;
-      margin-left: auto;
-    }
-
-    .ai {
-      background: #24313d;
-      color: white;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 12px;
-      gap: 8px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .chat-input input {
-      margin: 0;
-    }
-
-    .chat-input button {
-      background: #37f3d0;
-      color: #061b18;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    @media(max-width: 800px) {
-      .navlinks {
-        display: none;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .trusted {
-        font-size: 20px;
-        gap: 22px;
-      }
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#0b1117;color:#f5f7fa}
+    .announcement{background:#37f3d0;color:#06201b;text-align:center;padding:12px;font-weight:700}
+    .navbar{height:80px;background:#0b1117;display:flex;align-items:center;justify-content:space-between;padding:0 8%;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:10}
+    .logo{font-size:26px;font-weight:800;color:#37f3d0}
+    .navlinks{display:flex;gap:28px;color:#d5dde5;font-size:15px}
+    .navlinks span{cursor:pointer}
+    .nav-actions{display:flex;gap:12px}
+    button{cursor:pointer}
+    .signup,.login-btn{background:#37f3d0;color:#061b18;border:none;padding:12px 22px;border-radius:30px;font-weight:800}
+    .login-btn{background:transparent;color:white;border:1px solid rgba(255,255,255,.3)}
+    .hero{padding:80px 8%;min-height:650px;background:radial-gradient(circle at 75% 30%,rgba(55,243,208,.16),transparent 35%),linear-gradient(135deg,#0b1117,#101b22)}
+    .trusted{display:flex;gap:45px;flex-wrap:wrap;color:rgba(255,255,255,.45);font-size:28px;font-weight:800;margin-bottom:90px}
+    .hero-content{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .tag{color:#37f3d0;font-weight:800;letter-spacing:2px;margin-bottom:18px}
+    .hero h1{font-size:64px;line-height:1.15;font-weight:800;margin-bottom:24px}
+    .hero p{font-size:20px;color:#c8d2dc;line-height:1.7;margin-bottom:32px}
+    .btns{display:flex;gap:18px}
+    .primary-btn,.secondary-btn{padding:16px 28px;border-radius:30px;font-weight:800}
+    .primary-btn{background:#37f3d0;color:#061b18;border:none}
+    .secondary-btn{background:transparent;color:white;border:1px solid rgba(255,255,255,.25)}
+    .hero-card,.card{background:#101820;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:26px}
+    .hero-card{background:#0f2d28;border-color:rgba(55,243,208,.25);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .hero-card h2{font-size:34px;margin-bottom:16px}
+    .feature-line{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:16px;border-radius:10px;margin:12px 0;color:#eaf7f4}
+    .dashboard{padding:70px 8%}
+    .section-title{font-size:38px;margin-bottom:28px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+    .card{transition:.3s;margin-bottom:22px}
+    .card:hover{transform:translateY(-6px);border-color:#37f3d0}
+    .card h3{margin-bottom:12px;color:#37f3d0}
+    .card p{color:#c8d2dc;line-height:1.7}
+    input{width:100%;padding:14px;margin:10px 0;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0b1117;color:white;outline:none}
+    .predict-btn{background:#37f3d0;color:#061b18;border:none;padding:14px 24px;border-radius:30px;font-weight:800;margin-top:10px}
+    #careerResult,#authResult{margin-top:18px;color:#37f3d0;font-size:18px;font-weight:800}
+    .progress{height:10px;background:#24313d;border-radius:20px;margin:15px 0;overflow:hidden}
+    .progress-bar{width:72%;height:100%;background:#37f3d0}
+    #chatButton{position:fixed;right:28px;bottom:28px;background:#37f3d0;color:#061b18;padding:16px 24px;border-radius:40px;font-weight:800;box-shadow:0 10px 30px rgba(55,243,208,.35);z-index:20}
+    #chatPopup{position:fixed;right:28px;bottom:95px;width:340px;height:440px;background:#101820;border:1px solid rgba(55,243,208,.35);border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.5);z-index:20}
+    .chat-header{background:#37f3d0;color:#061b18;padding:14px;font-weight:800;display:flex;justify-content:space-between}
+    #chatbox{flex:1;padding:14px;overflow-y:auto}
+    .msg{padding:10px 12px;margin:8px 0;border-radius:12px;max-width:78%;font-size:14px}
+    .user{background:#37f3d0;color:#061b18;margin-left:auto}
+    .ai{background:#24313d;color:white}
+    .chat-input{display:flex;padding:12px;gap:8px;border-top:1px solid rgba(255,255,255,.1)}
+    .chat-input input{margin:0}
+    .chat-input button{background:#37f3d0;color:#061b18;border:none;padding:10px 14px;border-radius:10px;font-weight:800}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:30}
+    .modal-box{background:#101820;border:1px solid rgba(55,243,208,.35);border-radius:18px;padding:28px;width:360px}
+    .modal-box h2{color:#37f3d0;margin-bottom:12px}
+    .close{float:right;cursor:pointer;color:white}
+    @media(max-width:800px){.navlinks{display:none}.hero-content{grid-template-columns:1fr}.hero h1{font-size:42px}.trusted{font-size:20px;gap:22px}}
   </style>
 </head>
 
 <body>
 
-  <div class="announcement">
-    Privacy-first AI learning and career guidance platform
+<div class="announcement">Privacy-first AI learning and career guidance platform</div>
+
+<div class="navbar">
+  <div class="logo">✦ AI Buddy</div>
+  <div class="navlinks">
+    <span onclick="scrollToDashboard()">Career</span>
+    <span onclick="scrollToDashboard()">Roadmap</span>
+    <span onclick="toggleChat()">AI Friend</span>
+  </div>
+  <div class="nav-actions">
+    <button class="login-btn" onclick="openAuth('login')">Login</button>
+    <button class="signup" onclick="openAuth('register')">Register</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="trusted">
+    <span>Students</span><span>Colleges</span><span>Mentors</span><span>Companies</span>
   </div>
 
-  <div class="navbar">
-    <div class="logo">✦ AI Buddy</div>
-
-    <div class="navlinks">
-      <span>Platform</span>
-      <span>Career</span>
-      <span>Roadmap</span>
-      <span>Progress</span>
+  <div class="hero-content">
+    <div>
+      <div class="tag">AI CAREER COMPANION</div>
+      <h1>Build your future.<br>Learn with AI.</h1>
+      <p>AI Buddy predicts the right career path using your skills and interests, then creates a personalized roadmap for placements and internships.</p>
+      <div class="btns">
+        <button class="primary-btn" onclick="scrollToDashboard()">Predict Career</button>
+        <button class="secondary-btn" onclick="toggleChat()">Ask AI Buddy</button>
+      </div>
     </div>
 
-    <button class="signup" onclick="scrollToDashboard()">Get Started</button>
+    <div class="hero-card">
+      <h2>Grow with AI guidance.</h2>
+      <p>Your AI friend helps you choose the right path and learn step by step.</p>
+      <div class="feature-line">Personalized career prediction</div>
+      <div class="feature-line">Backend connected roadmap</div>
+      <div class="feature-line">Login and registration system</div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard" id="dashboard">
+  <h2 class="section-title">Your Career Dashboard</h2>
+
+  <div class="card">
+    <h3>🧠 Career Predictor</h3>
+    <input id="skillsInput" placeholder="Enter skills: coding, design, data">
+    <input id="interestsInput" placeholder="Enter interests: technology, creativity, business">
+    <button class="predict-btn" onclick="predictCareer()">Predict Career</button>
+    <div id="careerResult">Result will appear here</div>
   </div>
 
-  <section class="hero">
-    <div class="trusted">
-      <span>Students</span>
-      <span>Colleges</span>
-      <span>Mentors</span>
-      <span>Companies</span>
+  <div class="grid">
+    <div class="card">
+      <h3>🎯 Career Path</h3>
+      <p id="careerText">Enter your skills and interests to get career prediction.</p>
     </div>
-
-    <div class="hero-content">
-      <div>
-        <div class="tag">AI CAREER COMPANION</div>
-        <h1>Build your future.<br>Learn with AI.</h1>
-        <p>
-          AI Buddy predicts the right career path using your skills and interests,
-          then creates a personalized roadmap for placements, internships, and future goals.
-        </p>
-
-        <div class="btns">
-          <button class="primary-btn" onclick="scrollToDashboard()">Predict Career</button>
-          <button class="secondary-btn" onclick="toggleChat()">Ask AI Buddy</button>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <h2>Grow with AI guidance.</h2>
-        <p>Your AI friend helps you choose the right path and learn step by step.</p>
-
-        <div class="feature-line">Personalized career prediction</div>
-        <div class="feature-line">Skill-based learning roadmap</div>
-        <div class="feature-line">Privacy-first minimal data system</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="dashboard" id="dashboard">
-    <h2 class="section-title">Your Career Dashboard</h2>
 
     <div class="card">
-      <h3>🧠 Career Predictor</h3>
-
-      <input id="skillsInput" placeholder="Enter skills: coding, design, data, ai">
-      <input id="interestsInput" placeholder="Enter interests: technology, creativity, business">
-
-      <button class="predict-btn" onclick="predictCareer()">Predict Career</button>
-
-      <div id="careerResult">Result will appear here</div>
+      <h3>📚 Learning Roadmap</h3>
+      <p id="roadmapText">Roadmap will appear after prediction.</p>
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>🎯 Career Path</h3>
-        <p id="careerText">Enter your skills and interests to get career prediction.</p>
-      </div>
-
-      <div class="card">
-        <h3>📚 Learning Roadmap</h3>
-        <p id="roadmapText">
-          Week 1: Basics<br>
-          Week 2: Mini Project<br>
-          Week 3: Advanced Concepts<br>
-          Week 4: Portfolio
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📊 Progress</h3>
-        <div class="progress"><div class="progress-bar"></div></div>
-        <p>72% career readiness completed.</p>
-      </div>
-
-      <div class="card">
-        <h3>🏆 Rewards</h3>
-        <p>🔥 3-day streak<br>🎖 Skill Builder Badge unlocked</p>
-      </div>
-    </div>
-  </section>
-
-  <div id="chatButton" onclick="toggleChat()">🤖 Ask AI Buddy</div>
-
-  <div id="chatPopup">
-    <div class="chat-header">
-      AI Friend
-      <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+    <div class="card">
+      <h3>📊 Progress</h3>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <p>72% career readiness completed.</p>
     </div>
 
-    <div id="chatbox">
-      <div class="msg ai">Hey! I’m your AI Buddy. Tell me your interest, and I’ll guide your career path 🚀</div>
-    </div>
-
-    <div class="chat-input">
-      <input id="userInput" placeholder="Ask anything...">
-      <button onclick="sendMessage()">Send</button>
+    <div class="card">
+      <h3>🏆 Rewards</h3>
+      <p>🔥 3-day streak<br>🎖 Skill Builder Badge unlocked</p>
     </div>
   </div>
+</section>
 
-  <script>
-    function toggleChat() {
-      let popup = document.getElementById("chatPopup");
-      popup.style.display = popup.style.display === "flex" ? "none" : "flex";
-    }
+<div id="chatButton" onclick="toggleChat()">🤖 Ask AI Buddy</div>
 
-    function scrollToDashboard() {
-      document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
-    }
+<div id="chatPopup">
+  <div class="chat-header">
+    AI Friend
+    <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+  </div>
+  <div id="chatbox">
+    <div class="msg ai">Hey! I’m your AI Buddy. Enter your skills and I’ll guide your career path 🚀</div>
+  </div>
+  <div class="chat-input">
+    <input id="userInput" placeholder="Ask anything...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
 
-    async function predictCareer() {
-      const skillsValue = document.getElementById("skillsInput").value;
-      const interestsValue = document.getElementById("interestsInput").value;
+<div class="modal" id="authModal">
+  <div class="modal-box">
+    <span class="close" onclick="closeAuth()">✖</span>
+    <h2 id="authTitle">Login</h2>
+    <input id="nameInput" placeholder="Name">
+    <input id="emailInput" placeholder="Email">
+    <input id="passwordInput" type="password" placeholder="Password">
+    <button class="predict-btn" onclick="submitAuth()">Submit</button>
+    <div id="authResult"></div>
+  </div>
+</div>
 
-      const skills = skillsValue
-        .split(",")
-        .map(item => item.trim().toLowerCase())
-        .filter(item => item !== "");
+<script>
+  const API_BASE = "http://localhost:5000";
+  let authMode = "login";
+  let currentUser = null;
+  let currentCareer = "";
 
-      const interests = interestsValue
-        .split(",")
-        .map(item => item.trim().toLowerCase())
-        .filter(item => item !== "");
+  function toggleChat() {
+    const popup = document.getElementById("chatPopup");
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+  }
 
-      if (skills.length === 0 && interests.length === 0) {
-        document.getElementById("careerResult").innerText = "Please enter skills or interests.";
+  function scrollToDashboard() {
+    document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function openAuth(mode) {
+    authMode = mode;
+    document.getElementById("authModal").style.display = "flex";
+    document.getElementById("authTitle").innerText = mode === "login" ? "Login" : "Register";
+    document.getElementById("nameInput").style.display = mode === "login" ? "none" : "block";
+    document.getElementById("authResult").innerText = "";
+  }
+
+  function closeAuth() {
+    document.getElementById("authModal").style.display = "none";
+  }
+
+  async function submitAuth() {
+    const name = document.getElementById("nameInput").value;
+    const email = document.getElementById("emailInput").value;
+    const password = document.getElementById("passwordInput").value;
+
+    const url = authMode === "login"
+      ? API_BASE + "/api/auth/login"
+      : API_BASE + "/api/auth/register";
+
+    const body = authMode === "login"
+      ? { email, password }
+      : { name, email, password };
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        document.getElementById("authResult").innerText = data;
         return;
       }
 
-      document.getElementById("careerResult").innerText = "Predicting...";
+      currentUser = data.user || data;
+      localStorage.setItem("user", JSON.stringify(currentUser));
 
-      try {
-        const response = await fetch("http://localhost:5000/api/career/predict", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ skills, interests })
-        });
+      document.getElementById("authResult").innerText =
+        authMode === "login" ? "Login successful!" : "Register successful!";
+    } catch (err) {
+      document.getElementById("authResult").innerText = "Backend not connected.";
+    }
+  }
 
-        const data = await response.json();
+  async function predictCareer() {
+    const skills = document.getElementById("skillsInput").value
+      .split(",").map(x => x.trim().toLowerCase()).filter(Boolean);
 
-        document.getElementById("careerResult").innerText =
-          "Recommended Career: " + data.career;
+    const interests = document.getElementById("interestsInput").value
+      .split(",").map(x => x.trim().toLowerCase()).filter(Boolean);
 
-        document.getElementById("careerText").innerText =
-          "Recommended path: " + data.career + " based on your skills and interests.";
-
-        document.getElementById("roadmapText").innerHTML = getRoadmap(data.career);
-
-      } catch (error) {
-        document.getElementById("careerResult").innerText =
-          "Backend not connected. Start your Node.js server first.";
-
-        console.error(error);
-      }
+    if (skills.length === 0 && interests.length === 0) {
+      document.getElementById("careerResult").innerText = "Please enter skills or interests.";
+      return;
     }
 
-    function getRoadmap(career) {
-      if (career === "UI/UX Designer") {
-        return `
-          Week 1: Learn UI basics and color theory<br>
-          Week 2: Practice Figma wireframes<br>
-          Week 3: Build mobile app UI<br>
-          Week 4: Create portfolio case study
-        `;
-      }
+    document.getElementById("careerResult").innerText = "Predicting...";
 
-      if (career === "Data Scientist") {
-        return `
-          Week 1: Learn Python basics<br>
-          Week 2: Learn statistics and data cleaning<br>
-          Week 3: Build data visualization project<br>
-          Week 4: Learn machine learning basics
-        `;
-      }
+    try {
+      const res = await fetch(API_BASE + "/api/ai/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skills, interests })
+      });
 
-      if (career === "AI Engineer") {
-        return `
-          Week 1: Learn Python and AI basics<br>
-          Week 2: Study machine learning concepts<br>
-          Week 3: Build chatbot project<br>
-          Week 4: Deploy AI project
-        `;
-      }
+      const data = await res.json();
+      currentCareer = data.career;
 
-      return `
-        Week 1: Learn programming basics<br>
-        Week 2: Build mini projects<br>
-        Week 3: Learn advanced concepts<br>
-        Week 4: Create portfolio and prepare for internships
-      `;
+      document.getElementById("careerResult").innerText = "Recommended Career: " + currentCareer;
+      document.getElementById("careerText").innerText =
+        "Recommended path: " + currentCareer + " based on your skills and interests.";
+
+      await generateRoadmap(currentCareer);
+
+    } catch (err) {
+      document.getElementById("careerResult").innerText = "Backend not connected. Using demo mode.";
+      currentCareer = localPredict(skills);
+      document.getElementById("careerText").innerText = "Recommended path: " + currentCareer;
+      document.getElementById("roadmapText").innerHTML = localRoadmap(currentCareer);
+    }
+  }
+
+  async function generateRoadmap(career) {
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+
+    try {
+      const res = await fetch(API_BASE + "/api/ai/roadmap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user ? user._id : null,
+          career
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.steps && data.steps.length > 0) {
+        document.getElementById("roadmapText").innerHTML =
+          data.steps.map((step, i) => `Step ${i + 1}: ${step}`).join("<br>");
+      } else {
+        document.getElementById("roadmapText").innerHTML = localRoadmap(career);
+      }
+    } catch (err) {
+      document.getElementById("roadmapText").innerHTML = localRoadmap(career);
+    }
+  }
+
+  function localPredict(skills) {
+    if (skills.includes("design")) return "UI/UX Designer";
+    if (skills.includes("data")) return "Data Scientist";
+    return "Software Developer";
+  }
+
+  function localRoadmap(career) {
+    if (career === "UI/UX Designer") {
+      return "Step 1: Learn UI basics<br>Step 2: Practice Figma<br>Step 3: Build app UI<br>Step 4: Create portfolio";
     }
 
-    function sendMessage() {
-      let input = document.getElementById("userInput");
-      let msg = input.value.trim();
-      if (!msg) return;
-
-      let chatbox = document.getElementById("chatbox");
-      chatbox.innerHTML += `<div class="msg user">${msg}</div>`;
-
-      let reply = "Great! I will help you step by step. First enter your skills and interests in the Career Predictor, then I’ll guide your roadmap 🚀";
-
-      setTimeout(() => {
-        chatbox.innerHTML += `<div class="msg ai">${reply}</div>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-      }, 500);
-
-      input.value = "";
+    if (career === "Data Scientist") {
+      return "Step 1: Learn Python<br>Step 2: Learn Statistics<br>Step 3: Build data project<br>Step 4: Learn ML basics";
     }
-  </script>
+
+    return "Step 1: Learn Python<br>Step 2: Master DSA<br>Step 3: Build Projects<br>Step 4: Apply for internships";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `<div class="msg user">${msg}</div>`;
+
+    let reply = currentCareer
+      ? `Based on your prediction, your career path is ${currentCareer}. Follow your roadmap step by step and build projects.`
+      : "First enter your skills and interests in Career Predictor, then I’ll guide your roadmap 🚀";
+
+    setTimeout(() => {
+      chatbox.innerHTML += `<div class="msg ai">${reply}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+</script>
 
 </body>
 </html>
