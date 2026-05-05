@@ -22,7 +22,7 @@
       color: #06201b;
       text-align: center;
       padding: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .navbar {
@@ -55,24 +55,13 @@
       cursor: pointer;
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .login {
-      color: white;
-      cursor: pointer;
-    }
-
     .signup {
       background: #37f3d0;
       color: #061b18;
       border: none;
       padding: 13px 24px;
       border-radius: 30px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
     }
 
@@ -103,7 +92,7 @@
 
     .tag {
       color: #37f3d0;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 2px;
       margin-bottom: 18px;
     }
@@ -118,7 +107,6 @@
     .hero p {
       font-size: 20px;
       color: #c8d2dc;
-      max-width: 650px;
       line-height: 1.7;
       margin-bottom: 32px;
     }
@@ -128,24 +116,23 @@
       gap: 18px;
     }
 
-    .primary-btn {
-      background: #37f3d0;
-      color: #061b18;
-      border: none;
+    .primary-btn, .secondary-btn {
       padding: 16px 28px;
       border-radius: 30px;
       font-weight: 800;
       cursor: pointer;
     }
 
+    .primary-btn {
+      background: #37f3d0;
+      color: #061b18;
+      border: none;
+    }
+
     .secondary-btn {
       background: transparent;
       color: white;
       border: 1px solid rgba(255,255,255,0.25);
-      padding: 16px 28px;
-      border-radius: 30px;
-      font-weight: 700;
-      cursor: pointer;
     }
 
     .hero-card {
@@ -159,11 +146,6 @@
     .hero-card h2 {
       font-size: 34px;
       margin-bottom: 16px;
-    }
-
-    .hero-card p {
-      font-size: 16px;
-      margin-bottom: 18px;
     }
 
     .feature-line {
@@ -197,6 +179,7 @@
       border-radius: 18px;
       padding: 26px;
       transition: 0.3s;
+      margin-bottom: 22px;
     }
 
     .card:hover {
@@ -212,6 +195,35 @@
     .card p {
       color: #c8d2dc;
       line-height: 1.7;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #0b1117;
+      color: white;
+      outline: none;
+    }
+
+    .predict-btn {
+      background: #37f3d0;
+      color: #061b18;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #careerResult {
+      margin-top: 18px;
+      color: #37f3d0;
+      font-size: 20px;
+      font-weight: 800;
     }
 
     .progress {
@@ -300,13 +312,7 @@
     }
 
     .chat-input input {
-      flex: 1;
-      background: #0b1117;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 10px;
-      border-radius: 10px;
-      outline: none;
+      margin: 0;
     }
 
     .chat-input button {
@@ -343,7 +349,7 @@
 <body>
 
   <div class="announcement">
-    Announcing: Privacy-first AI learning and career guidance platform
+    Privacy-first AI learning and career guidance platform
   </div>
 
   <div class="navbar">
@@ -351,16 +357,12 @@
 
     <div class="navlinks">
       <span>Platform</span>
-      <span>Solutions</span>
       <span>Career</span>
       <span>Roadmap</span>
-      <span>Pricing</span>
+      <span>Progress</span>
     </div>
 
-    <div class="nav-actions">
-      <span class="login">Log in</span>
-      <button class="signup">Sign up</button>
-    </div>
+    <button class="signup" onclick="scrollToDashboard()">Get Started</button>
   </div>
 
   <section class="hero">
@@ -368,21 +370,20 @@
       <span>Students</span>
       <span>Colleges</span>
       <span>Mentors</span>
-      <span>Startups</span>
       <span>Companies</span>
     </div>
 
     <div class="hero-content">
       <div>
-        <div class="tag">HOW IT WORKS</div>
-        <h1>Build your future.<br>Learn on one platform.</h1>
+        <div class="tag">AI CAREER COMPANION</div>
+        <h1>Build your future.<br>Learn with AI.</h1>
         <p>
-          AI Buddy creates a personalized career roadmap based on your skills,
-          interests, academic performance, and placement goals.
+          AI Buddy predicts the right career path using your skills and interests,
+          then creates a personalized roadmap for placements, internships, and future goals.
         </p>
 
         <div class="btns">
-          <button class="primary-btn" onclick="scrollToDashboard()">Get Started</button>
+          <button class="primary-btn" onclick="scrollToDashboard()">Predict Career</button>
           <button class="secondary-btn" onclick="toggleChat()">Ask AI Buddy</button>
         </div>
       </div>
@@ -391,8 +392,8 @@
         <h2>Grow with AI guidance.</h2>
         <p>Your AI friend helps you choose the right path and learn step by step.</p>
 
-        <div class="feature-line">Personalized learning roadmap</div>
-        <div class="feature-line">Career prediction and skill analysis</div>
+        <div class="feature-line">Personalized career prediction</div>
+        <div class="feature-line">Skill-based learning roadmap</div>
         <div class="feature-line">Privacy-first minimal data system</div>
       </div>
     </div>
@@ -401,15 +402,31 @@
   <section class="dashboard" id="dashboard">
     <h2 class="section-title">Your Career Dashboard</h2>
 
+    <div class="card">
+      <h3>🧠 Career Predictor</h3>
+
+      <input id="skillsInput" placeholder="Enter skills: coding, design, data, ai">
+      <input id="interestsInput" placeholder="Enter interests: technology, creativity, business">
+
+      <button class="predict-btn" onclick="predictCareer()">Predict Career</button>
+
+      <div id="careerResult">Result will appear here</div>
+    </div>
+
     <div class="grid">
       <div class="card">
         <h3>🎯 Career Path</h3>
-        <p>Recommended path: Software Developer based on current interest and skill growth.</p>
+        <p id="careerText">Enter your skills and interests to get career prediction.</p>
       </div>
 
       <div class="card">
         <h3>📚 Learning Roadmap</h3>
-        <p>Week 1: Basics<br>Week 2: Mini Project<br>Week 3: Advanced Concepts<br>Week 4: Portfolio</p>
+        <p id="roadmapText">
+          Week 1: Basics<br>
+          Week 2: Mini Project<br>
+          Week 3: Advanced Concepts<br>
+          Week 4: Portfolio
+        </p>
       </div>
 
       <div class="card">
@@ -449,6 +466,94 @@
       popup.style.display = popup.style.display === "flex" ? "none" : "flex";
     }
 
+    function scrollToDashboard() {
+      document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
+    }
+
+    async function predictCareer() {
+      const skillsValue = document.getElementById("skillsInput").value;
+      const interestsValue = document.getElementById("interestsInput").value;
+
+      const skills = skillsValue
+        .split(",")
+        .map(item => item.trim().toLowerCase())
+        .filter(item => item !== "");
+
+      const interests = interestsValue
+        .split(",")
+        .map(item => item.trim().toLowerCase())
+        .filter(item => item !== "");
+
+      if (skills.length === 0 && interests.length === 0) {
+        document.getElementById("careerResult").innerText = "Please enter skills or interests.";
+        return;
+      }
+
+      document.getElementById("careerResult").innerText = "Predicting...";
+
+      try {
+        const response = await fetch("http://localhost:5000/api/career/predict", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ skills, interests })
+        });
+
+        const data = await response.json();
+
+        document.getElementById("careerResult").innerText =
+          "Recommended Career: " + data.career;
+
+        document.getElementById("careerText").innerText =
+          "Recommended path: " + data.career + " based on your skills and interests.";
+
+        document.getElementById("roadmapText").innerHTML = getRoadmap(data.career);
+
+      } catch (error) {
+        document.getElementById("careerResult").innerText =
+          "Backend not connected. Start your Node.js server first.";
+
+        console.error(error);
+      }
+    }
+
+    function getRoadmap(career) {
+      if (career === "UI/UX Designer") {
+        return `
+          Week 1: Learn UI basics and color theory<br>
+          Week 2: Practice Figma wireframes<br>
+          Week 3: Build mobile app UI<br>
+          Week 4: Create portfolio case study
+        `;
+      }
+
+      if (career === "Data Scientist") {
+        return `
+          Week 1: Learn Python basics<br>
+          Week 2: Learn statistics and data cleaning<br>
+          Week 3: Build data visualization project<br>
+          Week 4: Learn machine learning basics
+        `;
+      }
+
+      if (career === "AI Engineer") {
+        return `
+          Week 1: Learn Python and AI basics<br>
+          Week 2: Study machine learning concepts<br>
+          Week 3: Build chatbot project<br>
+          Week 4: Deploy AI project
+        `;
+      }
+
+      return `
+        Week 1: Learn programming basics<br>
+        Week 2: Build mini projects<br>
+        Week 3: Learn advanced concepts<br>
+        Week 4: Create portfolio and prepare for internships
+      `;
+    }
+
     function sendMessage() {
       let input = document.getElementById("userInput");
       let msg = input.value.trim();
@@ -457,7 +562,7 @@
       let chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class="msg user">${msg}</div>`;
 
-      let reply = "Great! I will analyze your interest and suggest a career roadmap step by step. Start with basics, build projects, then prepare for internships.";
+      let reply = "Great! I will help you step by step. First enter your skills and interests in the Career Predictor, then I’ll guide your roadmap 🚀";
 
       setTimeout(() => {
         chatbox.innerHTML += `<div class="msg ai">${reply}</div>`;
@@ -465,10 +570,6 @@
       }, 500);
 
       input.value = "";
-    }
-
-    function scrollToDashboard() {
-      document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 
