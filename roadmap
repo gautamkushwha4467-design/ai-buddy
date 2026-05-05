@@ -1,0 +1,22 @@
+exports.generateRoadmap = async (req, res) => {
+  const { userId, career } = req.body;
+
+  let steps = [];
+
+  if (career === "Software Developer") {
+    steps = [
+      "Learn Python",
+      "Master DSA",
+      "Build Projects",
+      "Apply for internships"
+    ];
+  }
+
+  const roadmap = await Roadmap.create({
+    userId,
+    career,
+    steps
+  });
+
+  res.json(roadmap);
+};
